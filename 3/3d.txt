@@ -1,0 +1,13 @@
+% CRN: 021-389 - Cascaded Form using tf2sos
+
+z = [1; -1; 1+1i; 1-1i];              
+p = [0.5; -0.5; 0.1+0.2i; 0.1-0.2i];   
+k = 1;                               
+
+[b, a] = zp2tf(z, p, k);
+sos = tf2sos(b, a);
+
+disp('Second Order Sections:');
+disp(sos);
+zplane(z, p); 
+title('Factorizing the 4th-Order Filter (021-389)');

@@ -1,0 +1,18 @@
+7. Write a user defined function to calculate the direct DFT of given signal x[n] . Find the
+DFT of following sequence x[n] = {1, 2, 6, 5, 3, 2, 1, 2}
+% create dft.m file to make function
+function X = dft(x)
+N = length(x);
+X = zeros(1, N);
+for k = 0:N-1
+for n = 0:N-1
+X(k+1) = X(k+1) + x(n+1) * exp(-1i*2*pi*k*n/N);
+end
+end
+end
+%main program
+clc; clear; close all;
+x = [1,2,6,5,3,2,1,2];
+X = dft(x);
+disp('DFT of the given sequence x[n]:');
+disp(X);

@@ -1,0 +1,44 @@
+clc;clear;
+n = 0:100;
+
+f1 = 0.05;
+f2 = 0.47;
+
+x1 = cos(2*pi*f1*n);
+x2 = cos(2*pi*f2*n);
+
+x = x1 + x2;
+
+% Three-point smoothing filter
+% y[n] = (1/3){x[n] + x[n-1] + x[n-2]}
+y = zeros(size(x));
+
+for i = 3:length(x)
+    y(i) = (1/3)*(x(i) + x(i-1) + x(i-2));
+end
+
+figure;
+
+subplot(4,1,1);
+stem(n, x1);
+title('Signal x_1[n] (f_1 = 0.05)');
+xlabel('n'); ylabel('x_1[n]');
+grid on;
+
+subplot(4,1,2);
+stem(n, x2);
+title('Signal x_2[n] (f_2 = 0.47)');
+xlabel('n'); ylabel('x_2[n]');
+grid on;
+
+subplot(4,1,3);
+stem(n, x);
+title('Combined Signal x[n] = x_1[n] + x_2[n]');
+xlabel('n'); ylabel('x[n]');
+grid on;
+
+subplot(4,1,4);
+stem(n, y);
+title('Output y[n] of Three-Point Smoothing Filter');
+xlabel('n'); ylabel('y[n]');
+grid on;

@@ -1,0 +1,21 @@
+10. Write a MATLAB program that calculates the transfer function of the digital filter that
+has the following poles and zeros. Let the gain of this digital filter k = 1. {zk} = {- 3, - 1, 2 +
+i, 2 - i} and {pk} = {0.5, - 0.5, 0.1 + 0.4i, 0.1 - 0.4i}
+clc; clear; close all;
+% Given zeros and poles
+z = [-3, -1, 2+1i, 2-1i];
+p = [0.5, -0.5, 0.1+0.4i, 0.1-0.4i];
+k = 1; % Gain
+b = k * poly(z);
+a = poly(p);
+disp('Numerator coefficients (b):');
+disp(b);
+disp('Denominator coefficients (a):');
+disp(a);
+H = tf(b, a, 1);
+disp('Transfer Function H(z):');
+H
+figure;
+zplane(b, a);
+grid on;
+title('Pole-Zero Plot of the Digital Filter');

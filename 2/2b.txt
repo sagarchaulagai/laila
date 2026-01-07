@@ -1,0 +1,49 @@
+% convolution ko dt_convolution file
+function [y, ny] = dt_convolution(x1, n1, x2, n2)
+L1 = length(x1);
+L2 = length(x2);
+
+L = L1 + L2 - 1;
+
+y = zeros(1, L);
+for i = 1:L1
+    for j = 1:L2
+        y(i + j - 1) = y(i + j - 1) + x1(i) * x2(j);
+    end
+end
+
+ny = n1(1) + n2(1) : n1(end) + n2(end);
+end
+%-------
+clc;
+clear;
+
+
+x1 = [1 2 3];
+n1 = -1:1;
+
+x2 = [2 1 4];
+n2 = -2:0;
+
+[y, ny] = dt_convolution(x1, n1, x2, n2);
+
+figure;
+
+subplot(3,1,1);
+stem(n1, x1, 'filled');
+title('Signal x_1[n]');
+xlabel('n'); ylabel('x_1[n]');
+grid on;
+
+subplot(3,1,2);
+stem(n2, x2, 'filled');
+title('Signal x_2[n]');
+xlabel('n'); ylabel('x_2[n]');
+grid on;
+
+subplot(3,1,3);
+stem(ny, y, 'filled');
+title('Convolution y[n] = x_1[n] * x_2[n]');
+xlabel('n'); ylabel('y[n]');
+grid on;
+

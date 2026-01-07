@@ -1,0 +1,38 @@
+4. Write a user defined MATLAB function to calculate convolution of two non-causal
+discrete-time signals. Find the convolution of x[n]={1, a, 3, -1,5,2] and h[n] = {- 1, 6, 5, a, 2}
+Plot all the signals.
+% Create conv.m file to make function
+function y = conv(x, h)
+Nx = length(x);
+Nh = length(h);
+y = zeros(1, Nx + Nh - 1);
+for n = 1:Nx
+for k = 1:Nh
+y(n+k-1) = y(n+k-1) + x(n)*h(k);
+end
+end
+end
+%main program in another .m file
+clc; clear; close all;
+a = 66;
+x = [1 a 3 -1 5 2]; % 3 is at n = 0
+h = [-1 6 5 a 2]; % 6 is at n = 0
+nx = -2:3; % since 3 is at position 3nh = -1:3; % since 6 is at position 2
+% Convolution
+y = conv(x, h);
+ny = (nx(1)+nh(1)):(nx(end)+nh(end));
+subplot(3,1,1);
+stem(nx, x, 'filled');
+grid on;
+title('Input Signal x[n]');
+xlabel('n'); ylabel('x[n]');
+subplot(3,1,2);
+stem(nh, h, 'filled');
+grid on;
+title('Input Signal h[n]');
+xlabel('n'); ylabel('h[n]');
+subplot(3,1,3);
+stem(ny, y, 'filled');
+grid on;
+title('Convolution Output y[n]');
+xlabel('n'); ylabel('y[n]');

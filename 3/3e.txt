@@ -1,0 +1,17 @@
+% CRN: 021-389 - Partial Fraction Expansion using residuez
+clc; clear; close all;
+b = conv([1 0 -1], [1 -2 2]); 
+a = conv([1 -0.25], [1 -0.2 0.05]); 
+
+disp('Numerator b:'),
+disp(b)
+disp('Denominator a:'),
+disp(a)
+
+[r, p, k] = residuez(b, a); 
+disp('Residues r:');disp(r);
+disp('Poles p:');disp(p);
+disp('Direct terms k:');disp(k);
+
+zplane(b, a); 
+title('Partial Fraction Expansion (021-389)');

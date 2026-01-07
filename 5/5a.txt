@@ -1,0 +1,27 @@
+Write a program that plots the signal x(t) = sum n = 1 to N ((- 1) ^ ((n - 1)/2))/(n ^ 2) *
+sin((n pie t)/2) Plot for N = 10 and 100+a and determine the period of signal x(t) assume a =
+66
+clc; close all; clear all;
+a = 66;
+t = -10:0.001:10;
+N1 = 10;
+x1 = zeros(size(t));
+for n = 1:2:N1
+x1 = x1 + ((-1)^((n-1)/2) / n^2) .* sin(n*pi*t/2);
+end
+subplot(2,1,1);
+plot(t, x1);
+title('x(t) for N = 10');
+xlabel('t');
+ylabel('x(t)');
+grid on;
+N2 = 100 + a;
+x2 = zeros(size(t));
+for n = 1:2:N2
+x2 = x2 + ((-1)^((n-1)/2) / n^2) .* sin(n*pi*t/2);
+endsubplot(2,1,2);
+plot(t, x2);
+title('x(t) for N = 166');
+xlabel('t');
+ylabel('x(t)');
+grid on;

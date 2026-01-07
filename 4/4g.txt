@@ -1,0 +1,13 @@
+clc; clear all; close all;
+X = fft([1,2,3,4,5,6,7,8]);
+N = length(X);
+n = 0:N-1; k = n';
+WN = exp(1i*2*pi/N);
+WN_matrix = WN .^ (k*n);
+x_reconstructed = (1/N) * (WN_matrix * X.');
+disp('Reconstructed x[n] using IDFT matrix (021-395):'); 
+disp(x_reconstructed);
+
+x_ifft = ifft(X);
+disp('Reconstructed x[n] using ifft(021-395):'); 
+disp(x_ifft);

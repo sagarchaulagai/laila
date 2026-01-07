@@ -1,0 +1,17 @@
+Write a user defined function to calculate the DFT of given signal x[n] using DFT as
+linear transformation. Find the DFT of following sequence x[n] = {1, 2, 6, 5, 3, 2, 1, 2}
+% create dft_linear.m file to make function
+function X = dft_linear(x)
+N = length(x);
+n = 0:N-1;
+k = n';
+WN = exp(-1i*2*pi/N); % Twiddle factor
+WN_matrix = WN .^ (k*n); % DFT matrix
+X = WN_matrix * x.'; % Linear transformation
+end
+% main program
+clc; clear; close all;
+x = [1 2 6 5 3 2 1 2];
+X = dft_linear(x);
+disp('DFT of the given sequence using linear transformation:');
+disp(X)

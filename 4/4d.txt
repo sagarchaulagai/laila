@@ -1,0 +1,10 @@
+clc; clear all; close all;
+x = [1,2,3,4,5,6,7,8];
+N = length(x);
+n = 0:N-1;
+k = n';
+WN = exp(-1i*2*pi/N);
+WN_matrix = WN .^ (k*n);
+X = WN_matrix * x.';
+disp('DFT as linear transformation (021-395):'); 
+disp(X);

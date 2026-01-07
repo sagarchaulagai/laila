@@ -1,0 +1,13 @@
+clc; clear; close all;
+[x, Fs] = audioread('sample_audio.mp3');
+if size(x,2) == 2
+    x = x(:,1);  
+end
+N = length(x);     
+X = fft(x);         
+f = (-N/2+1:N/2)*Fs/N;  
+plot(f, fftshift(abs(X)/N));
+title('Amplitude Spectrum of Voice Signal (021-395)');
+xlabel('Frequency (Hz)');
+ylabel('|X(f)|');
+grid on;

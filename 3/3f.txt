@@ -1,0 +1,22 @@
+% CRN: 021-389 - Frequency and Phase Response
+clc; clear; close all;
+b = conv([1 0 -1], [1 -2 2]); 
+a = conv([1 -0.25], [1 -0.2 0.05]); 
+omega = linspace(0, pi, 1024);  
+z = exp(1j*omega);  
+
+Hz = polyval(b, z.^-1) ./ polyval(a, z.^-1); 
+
+subplot(2,1,1); 
+plot(omega, abs(Hz)); 
+grid on; 
+title('Magnitude Response (021-389) |H(e^{j\omega})|'); 
+xlabel('\omega (rad/sample)'); 
+ylabel('Magnitude'); 
+
+subplot(2,1,2); 
+plot(omega, angle(Hz)); 
+grid on; 
+title('Phase Response arg (021-389)(H(e^{j\omega}))'); 
+xlabel('\omega (rad/sample)'); 
+ylabel('Phase (radians)');

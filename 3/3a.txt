@@ -1,0 +1,17 @@
+clc;
+clear;
+
+a = [1  -0.5  0.25  -0.1  0.05]; 
+b = [0.2 0.4 0.3 0.1 0.05];      
+
+
+[z, p, k] = tf2zp(b, a);
+
+disp('Zeros of the system:');
+disp(z);
+
+disp('Poles of the system:');
+disp(p);
+
+disp('Gain of the system:');
+disp(k);

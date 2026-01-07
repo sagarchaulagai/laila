@@ -1,0 +1,26 @@
+clc;
+clear;
+
+b1 = (1/3)*[1 1 1];
+a1 = 1;
+
+b2 = [1 -1];
+a2 = 1;
+
+
+b3 = 1;
+a3 = [1 -1];
+
+figure;
+
+subplot(3,1,1);
+impz(b1, a1);
+title('Impulse Response using impz: Smoothing Filter');
+
+subplot(3,1,2);
+impz(b2, a2);
+title('Impulse Response using impz: Differentiator');
+
+subplot(3,1,3);
+impz(b3, a3);
+title('Impulse Response using impz: Accumulator');

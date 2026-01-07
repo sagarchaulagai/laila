@@ -1,0 +1,64 @@
+clc;
+clear;
+
+% -------------------------------
+% (a) Normally Distributed Random Signal
+% -------------------------------
+N = 100;                    % length of signal
+n = 0:N-1;
+
+random_signal = randn(1, N);
+
+figure;
+stem(n, random_signal, 'filled');
+title('Normally Distributed Random Signal (Length = 100)');
+xlabel('n');
+ylabel('x[n]');
+grid on;
+
+% -------------------------------
+% (b) Noise Sinusoidal Signal
+% -------------------------------
+A = 1;
+f = 0.05;                   % frequency
+noise = 0.3 * randn(1, N);  % Gaussian noise
+
+x = A*cos(2*pi*f*n) + noise;
+
+figure;
+stem(n, x, 'filled');
+title('Noise Sinusoidal Signal');
+xlabel('n');
+ylabel('x[n]');
+grid on;
+
+% -------------------------------
+% (c) Even and Odd Parts of Signal
+% -------------------------------
+
+% Create time-reversed signal
+x_rev = fliplr(x);
+
+% Even and Odd components
+x_even = (x + x_rev)/2;
+x_odd  = (x - x_rev)/2;
+
+figure;
+
+subplot(3,1,1);
+stem(n, x, 'filled');
+title('Original Noise Sinusoidal Signal');
+xlabel('n'); ylabel('x[n]');
+grid on;
+
+subplot(3,1,2);
+stem(n, x_even, 'filled');
+title('Even Part of Signal');
+xlabel('n'); ylabel('x_e[n]');
+grid on;
+
+subplot(3,1,3);
+stem(n, x_odd, 'filled');
+title('Odd Part of Signal');
+xlabel('n'); ylabel('x_o[n]');
+grid on;

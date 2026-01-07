@@ -1,0 +1,16 @@
+2. Write a MATLAB program to plot x(t) = sin(20pi*t) + cos(50pi*t) - sin(a*pi*t) From
+figure obtained, determine the period of this signal.
+clc; clear; close all;
+a = 66;
+t = 0:0.0001:2; % time axis
+x = sin(20*pi*t) + cos(50*pi*t) - sin(a*pi*t);
+plot(t, x);
+grid on;
+xlabel('t');
+ylabel('x(t)');
+title('x(t) = sin(20\pit) + cos(50\pit) - sin(66\pit)');
+%sin(20 pie t) frequency = 10 Hz
+%cos(50 pie t) frequency = 25 Hz
+%sin(66 pie t) frequency = 33 Hz
+%These frequencies are all integer multiples of 1 Hz.
+% So the whole signal repeats after 1 second

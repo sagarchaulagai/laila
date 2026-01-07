@@ -1,0 +1,18 @@
+ A third order digital filter has the difference equation of the form: y[n] = x[n]+2x[n-
+1]+3x[n-2]-0.5 y[n-1] -0.6 y[n-2]- 0.1y[n-3] Write a MATLAB program that calculates the
+poles and zeros of this digital filter.Also plot the poles and zeros of this filter.
+clc; clear; close all;
+b = [1 2 3];
+a = [1 0.5 0.6 0.1];
+% Calculate zeros and poles
+zeros_f = roots(b);
+poles_f = roots(a);
+disp('Zeros of the digital filter:');
+disp(zeros_f);
+disp('Poles of the digital filter:');
+disp(poles_f);
+% Plot poles and zeros
+figure;
+zplane(b, a);
+grid on;
+title('Pole-Zero Plot of the Digital Filter');

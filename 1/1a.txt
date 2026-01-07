@@ -1,0 +1,44 @@
+clc; clear; close all;
+
+n = -10 : 10;
+x = (n == 0);
+figure;
+stem(n, x);
+xlabel('n'); ylabel('\delta(n)');
+title('Unit Impulse Sequence');
+grid on;
+
+x = (n >= 0);
+figure;
+stem(n, x);
+xlabel('n'); ylabel('u(n)');
+title('Unit Step Sequence');
+grid on;
+
+x = n .* (n >= 0);
+figure;
+stem(n, x);
+xlabel('n'); ylabel('r(n)');
+title('Unit Ramp Sequence');
+grid on;
+
+x = sin(0.2*pi*n);
+figure;
+stem(n, x);
+xlabel('n'); ylabel('x(n)');
+title('Sinusoidal Sequence');
+grid on;
+
+x = (0.8).^n .* (n >= 0);
+figure;
+stem(n, x, 'filled');
+xlabel('n'); ylabel('x(n)');
+title('Exponential Sequence');
+grid on;
+
+x = sign(sin(0.2*pi*n));
+figure;
+stem(n, x, 'filled');
+xlabel('n'); ylabel('x(n)');
+title('Square Wave Sequence');
+grid on;

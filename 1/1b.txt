@@ -1,0 +1,14 @@
+F = 3; 
+A = 2; 
+th = 0;        
+
+Fs = 20*F;               
+Ts = 1/Fs; 
+T = 1/F;           
+t = 0:Ts:3*T;               
+x = A * sin(2*pi*F*t + th);    
+plot(t,x);                            
+title('Continuous time sinusoid'); 
+xlabel('t'); 
+ylabel('x(t)'); 
+grid on;

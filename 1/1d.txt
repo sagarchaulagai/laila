@@ -1,0 +1,57 @@
+clc;
+clear;
+
+t = 0:0.001:1;     % time axis
+
+% ---------- (a) N = 9 ----------
+N1 = 9;
+x1 = zeros(size(t));
+
+for n = 1:2:N1     % odd harmonics only
+    x1 = x1 + sin(2*pi*n*t);
+end
+
+% ---------- (b) N = 99 ----------
+N2 = 99;
+x2 = zeros(size(t));
+
+for n = 1:2:N2
+    x2 = x2 + sin(2*pi*n*t);
+end
+
+% ---------- (b) N = 999 ----------
+N3 = 999;
+x3 = zeros(size(t));
+
+for n = 1:2:N3
+    x3 = x3 + sin(2*pi*n*t);
+end
+
+% ---------- Plot Fourier Series Approximations ----------
+figure;
+
+subplot(3,1,1);
+plot(t, x1);
+title('Fourier Series Approximation (N = 9)');
+xlabel('t'); ylabel('x(t)');
+grid on;
+
+subplot(3,1,2);
+plot(t, x2);
+title('Fourier Series Approximation (N = 99)');
+xlabel('t'); ylabel('x(t)');
+grid on;
+
+subplot(3,1,3);
+plot(t, x3);
+title('Fourier Series Approximation (N = 999)');
+xlabel('t'); ylabel('x(t)');
+grid on;
+
+% ---------- (d) Square Wave ----------
+figure;
+square_wave = square(2*pi*t);
+plot(t, square_wave);
+title('Square Wave using MATLAB square() function');
+xlabel('t'); ylabel('x(t)');
+grid on;

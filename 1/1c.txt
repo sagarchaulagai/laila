@@ -1,0 +1,15 @@
+clc;
+clear;
+
+n = 0:50;      
+A = 1;
+f = 0.1;
+theta = 0;
+
+x = A*cos(2*pi*f*n + theta);
+
+stem(n, x, 'filled');
+xlabel('n');
+ylabel('x[n]');
+title('Discrete-Time Sinusoidal Signal (f = 0.1)');
+grid on;

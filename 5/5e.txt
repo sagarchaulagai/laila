@@ -1,0 +1,20 @@
+ Write a MATLAB program that plots the impulse response of the three-point smoothing
+filter. Plot also the frequency response of this system.
+clc; clear; close all;
+% Impulse response of 3-point smoothing filter
+h = (1/3)*ones(1,3);
+n = 0:2;
+subplot(2,1,1);
+stem(n, h, 'filled');
+grid on;
+xlabel('n');
+ylabel('h[n]');
+title('Impulse Response of 3-Point Smoothing Filter');
+% Frequency response
+[H, w] = freqz(h, 1, 512);
+subplot(2,1,2);
+plot(w/pi, abs(H));
+grid on;
+xlabel('Normalized Frequency (\times\pi rad/sample)');
+ylabel('|H(e^{j\omega})|');
+title('Magnitude Response of 3-Point Smoothing Filter');
