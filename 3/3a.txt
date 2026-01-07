@@ -1,3 +1,5 @@
+Write a MATLAB program that calculate and plot the poles and zeros of this digital filter.
+Hint use the tf2zp & zplane Matlab command.
 clc;
 clear;
 

@@ -1,3 +1,4 @@
+#Impulse response using impz
 clc;
 clear;
 

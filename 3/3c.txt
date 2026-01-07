@@ -1,3 +1,7 @@
+Write a MATLAB program that calculates and plot the poles and zeros of the accumulator
+circuit whose difference equation is
+
+y[n] = x[n]+ y[n -1].
 % CRN: 021-389 - Pole-Zero Plot for Accumulator
 
 b = 1;

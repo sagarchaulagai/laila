@@ -1,0 +1,51 @@
+Check the stability test for the Accumulator, the Differentiator and Three-point smoothing filter. Also write a user defined MATLAB function to check whether the given LTI system is stable or not.
+% -------------------------------------------------
+% Stability Test of Discrete-Time LTI Systems
+% Accumulator, Differentiator, Three-Point Smoothing
+% -------------------------------------------------
+
+clc;
+clear;
+close all;
+
+% ---------- Impulse responses ----------
+
+% Differentiator
+h_diff = [1 -1];
+
+% Three-point smoothing filter
+h_smooth = [1/3 1/3 1/3];
+
+% Accumulator (truncated impulse response)
+N = 1000;                % approximation length
+h_acc = ones(1, N);      % u[n]
+
+% ---------- Stability Checks ----------
+disp('STABILITY TEST RESULTS');
+disp('----------------------');
+
+disp('Differentiator:');
+check_stability(h_diff);
+
+disp('Three-point Smoothing Filter:');
+check_stability(h_smooth);
+
+disp('Accumulator:');
+check_stability(h_acc);
+
+% ---------- User-defined function ----------
+function isStable = check_stability(h)
+% CHECK_STABILITY checks BIBO stability of an LTI system
+% using sum(|h[n]|) < infinity
+
+sum_abs_h = sum(abs(h));
+
+if isfinite(sum_abs_h)
+    isStable = true;
+    disp('  --> System is STABLE');
+else
+    isStable = false;
+    disp('  --> System is UNSTABLE');
+end
+
+end
