@@ -1,4 +1,4 @@
-% convolution ko dt_convolution file
+% 2qn.convolution ko dt_convolution file
 function [y, ny] = dt_convolution(x1, n1, x2, n2)
 L1 = length(x1);
 L2 = length(x2);

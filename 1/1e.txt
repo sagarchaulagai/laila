@@ -1,4 +1,4 @@
-# Random signals
+# 5qn. Random signals
 clc;
 clear;
 

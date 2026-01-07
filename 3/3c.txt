@@ -1,4 +1,4 @@
-Write a MATLAB program that calculates and plot the poles and zeros of the accumulator
+# 3qn. Write a MATLAB program that calculates and plot the poles and zeros of the accumulator
 circuit whose difference equation is
 
 y[n] = x[n]+ y[n -1].

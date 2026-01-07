@@ -1,4 +1,4 @@
-Write a MATLAB program that calculates the transfer function of the digital filter that has the
+# 2qn. Write a MATLAB program that calculates the transfer function of the digital filter that has the
 poles and zeros as z = {±1, 1 ±1i}, p = {±0.5, 0.1 ±0.2i}. Hint use the zp2tf MATLAB command.
 Let the gain of this digital filter k = 1. Also poles and zeros of this system.
 % CRN: 021-395 - Transfer Function using zp2tf

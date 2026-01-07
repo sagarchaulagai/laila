@@ -1,4 +1,4 @@
-# Discrete time sinusoid
+# 3qn. Discrete time sinusoid
 clc;
 clear;
 

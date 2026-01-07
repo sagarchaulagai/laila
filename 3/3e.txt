@@ -1,4 +1,4 @@
-% CRN: 021-389 - Partial Fraction Expansion using residuez
+# 5qn. CRN: 021-389 - Partial Fraction Expansion using residuez
 clc; clear; close all;
 b = conv([1 0 -1], [1 -2 2]); 
 a = conv([1 -0.25], [1 -0.2 0.05]); 

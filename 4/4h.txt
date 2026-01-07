@@ -1,3 +1,4 @@
+% Write a function MATLAB program to compute circular convolution of two unequal sequences.
 function y = circular_conv(x1, x2)
     N = max(length(x1), length(x2));
     x1 = [x1, zeros(1, N - length(x1))];

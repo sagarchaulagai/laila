@@ -1,4 +1,4 @@
-% CRN: 021-389 - Cascaded Form using tf2sos
+# 4qn. CRN: 021-389 - Cascaded Form using tf2sos
 
 z = [1; -1; 1+1i; 1-1i];              
 p = [0.5; -0.5; 0.1+0.2i; 0.1-0.2i];   

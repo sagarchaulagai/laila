@@ -1,3 +1,4 @@
+Now plot graphs for real, imaginary, absolute value and phase of the calculated DFT.
 clc; clear all; close all;
 x = [1,2,3,4,5,6,7,8];
 X = dft_f(x);

@@ -1,4 +1,4 @@
-#Fourier series
+# 4qn. Fourier series
 clc;
 clear;
 

@@ -1,3 +1,5 @@
+Also write a user defined function to calculate the direct DFT of given signal x[n]. The function may
+have the following syntax:
 function y = dft_f(x)
     N = length(x);         
     y = zeros(1, N);       

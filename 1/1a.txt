@@ -1,4 +1,4 @@
-% elementary signals
+% 1. elementary signals
 clc; clear; close all;
 
 n = -10 : 10;
