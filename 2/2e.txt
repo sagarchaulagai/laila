@@ -1,3 +1,6 @@
+# Impulse response ko 
+# Generate a unit impulse sequence and pass it through the three point smoothing filter, the
+differentiator and the accumulator. Plot the impulse responses of the systems.
 clc;
 clear;
 

@@ -1,3 +1,4 @@
+# LCCD mai, 3 point smoothing filter , sinusoidal signals ko combine garna
 clc;clear;
 n = 0:100;
 

@@ -1,3 +1,4 @@
+# LCCD ko filters haru ko implementation
 clc;
 clear;
 

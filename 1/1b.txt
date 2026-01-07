@@ -1,3 +1,4 @@
+# Continuous time sinusoid
 F = 3; 
 A = 2; 
 th = 0;        

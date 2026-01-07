@@ -1,3 +1,4 @@
+#Fourier series
 clc;
 clear;
 

@@ -1,3 +1,4 @@
+# Discrete time sinusoid
 clc;
 clear;
 
