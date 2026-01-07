@@ -5,7 +5,7 @@ a = Analysis(
     ['clipboard_manager.py'],
     pathex=[],
     binaries=[],
-    datas=[('logo.png', '.'), ('1', '1'), ('2', '2'), ('3', '3'), ('4', '4')],
+    datas=[('logo.png', '.'), ('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

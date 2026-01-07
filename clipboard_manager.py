@@ -54,6 +54,41 @@ def copy_file_content(filepath):
     except Exception as e:
         print(f"Failed to copy {filepath}: {e}")
 
+def combine_files_content(digit):
+    """Combines all text files for the given digit folder and copies to clipboard."""
+    print(f"Combining files for digit {digit}...")
+    paths = []
+    
+    # Identify files belonging to the digit folder
+    for key, filepath in state['mapping'].items():
+        parent_dir = os.path.basename(os.path.dirname(filepath))
+        # Ensure exact match for the directory name (e.g. '1')
+        if parent_dir == digit:
+            paths.append(filepath)
+            
+    if not paths:
+        print(f"No files found for digit {digit}")
+        return
+
+    # Sort to ensure order (1a, 1b, 1c...)
+    paths.sort()
+    
+    full_content_parts = []
+    for p in paths:
+        try:
+            with open(p, 'r', encoding='utf-8') as f:
+                full_content_parts.append(f.read())
+        except Exception as e:
+            print(f"Error reading {p}: {e}")
+            
+    if full_content_parts:
+        # Combine with newlines
+        combined = "\n".join(full_content_parts)
+        pyperclip.copy(combined)
+        print(f"Copied {len(full_content_parts)} combined files from folder {digit}")
+    else:
+        print("No content to copy.")
+
 def load_files_mapping():
     """Scans directories and builds a mapping of key sequences to file paths."""
     mapping = {}
@@ -94,8 +129,15 @@ def on_key_event(event):
         return
 
     # Check timeout
+    # Check timeout
     if state['status'] != 'IDLE' and (time.time() - state['last_time'] > TIMEOUT):
-        print("Timeout. Resetting sequence.")
+        # If we were waiting for a char (e.g., pressed '1'), treat timeout as "Combine All"
+        if state['status'] == 'WAIT_CHAR' and state['digit']:
+            print("Timeout waiting for char. Combining files for digit.")
+            combine_files_content(state['digit'])
+        else:
+            print("Timeout. Resetting sequence.")
+            
         state['status'] = 'IDLE'
         state['digit'] = None
 
@@ -118,6 +160,14 @@ def on_key_event(event):
 
     elif state['status'] == 'WAIT_CHAR':
         if event.name in ['ctrl', 'right ctrl', 'left ctrl']:
+            return
+            
+        # Treat Enter or Space as immediate "Combine All" trigger
+        if event.name in ['enter', 'space']:
+            print(f"Key '{event.name}' detected. Combining files for digit.")
+            combine_files_content(state['digit'])
+            state['status'] = 'IDLE'
+            state['digit'] = None
             return
 
         # We allow any character that forms a valid key in our mapping
